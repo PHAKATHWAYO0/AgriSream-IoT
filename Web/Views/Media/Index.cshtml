@@ -1,0 +1,4 @@
+@model List<(string Name, long? Size)>
+<h1>Drone images</h1>@if (ViewBag.Error != null) { <p class="err">@ViewBag.Error</p> }
+<form method="post" asp-action="Upload" enctype="multipart/form-data"><input type="file" name="file" accept="image/*" required><button class="btn">Upload</button></form>
+<table><tr><th>File</th><th>Size (bytes)</th></tr>@foreach (var i in Model) { <tr><td>@i.Name</td><td>@i.Size</td></tr> }</table>

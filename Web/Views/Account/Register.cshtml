@@ -1,0 +1,3 @@
+<h1>Create account</h1>@if (ViewBag.Error != null) { <p class="err">@ViewBag.Error</p> }
+<form method="post"><input name="username" placeholder="Username" required><input name="password" type="password" placeholder="Password (6+ characters)" required>
+<select name="role"><option>Farmer</option><option>Agronomist</option><option>Admin</option></select><button class="btn">Register</button></form>

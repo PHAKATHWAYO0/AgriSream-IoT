@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AgriStream IoT</title><link rel="stylesheet" href="~/css/site.css"></head><body>
+<header><a class="logo" href="/">AgriStream <span>IoT</span></a><nav>
+@if (User.Identity?.IsAuthenticated == true) {
+  <a asp-controller="Dashboard" asp-action="Index">Field dashboard</a>
+  <a asp-controller="Media" asp-action="Index">Drone images</a>
+  @if (User.IsInRole("Admin")) { <a asp-controller="Admin" asp-action="Index">Admin</a> }
+  <a asp-controller="Account" asp-action="Logout">Logout (@User.Identity.Name)</a>
+} else { <a asp-controller="Account" asp-action="Login">Login</a><a asp-controller="Account" asp-action="Register">Register</a> }
+</nav></header><main>
+@if (TempData["Msg"] is string m) { <p class="msg">@m</p> }
+@RenderBody()</main><footer>AgriStream IoT · smart farm monitoring</footer></body></html>

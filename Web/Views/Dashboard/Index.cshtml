@@ -1,0 +1,12 @@
+@model List<Reading>
+@{ var devices = (List<Device>)ViewBag.Devices; }
+<h1>Field dashboard</h1>@if (ViewBag.Error != null) { <p class="err">@ViewBag.Error</p> }
+<form method="post" asp-action="Simulate"><button class="btn">Simulate 20 sensor readings</button></form>
+<h2>Latest telemetry</h2>
+<table><tr><th>Sensor</th><th>Soil moisture %</th><th>Temp °C</th><th>Time (UTC)</th></tr>
+@foreach (var r in Model) { <tr><td>@r.deviceId</td><td>@r.soilMoisture</td><td>@r.temperature</td><td>@r.time</td></tr> }
+@if (!Model.Any()) { <tr><td colspan="4">No readings yet.</td></tr> }</table>
+<h2>Irrigation devices</h2>
+<table><tr><th>Device</th><th>Name</th><th>Status</th><th>Last command</th><th></th></tr>
+@foreach (var d in devices) { <tr><td>@d.DeviceId</td><td>@d.Name</td><td>@d.Status</td><td>@d.LastCommand</td>
+<td><form method="post" asp-action="Irrigate"><input type="hidden" name="deviceId" value="@d.DeviceId"><button class="btn">Trigger Irrigation</button></form></td></tr> }</table>

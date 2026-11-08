@@ -1,0 +1,4 @@
+@model List<AppUser>
+@{ var devices = (List<Device>)ViewBag.Devices; }
+<h1>Admin</h1><h2>Users</h2><table><tr><th>Username</th><th>Role</th></tr>@foreach (var u in Model) { <tr><td>@u.Username</td><td>@u.Role</td></tr> }</table>
+<h2>Device registry</h2><table><tr><th>Device</th><th>Status</th><th>Last command</th></tr>@foreach (var d in devices) { <tr><td>@d.DeviceId</td><td>@d.Status</td><td>@d.LastCommand</td></tr> }</table>

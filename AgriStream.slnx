@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Functions/">
+    <Project Path="Functions/AgriStream.Functions.csproj" />
+  </Folder>
+  <Folder Name="/Web/">
+    <Project Path="Web/AgriStream.Web.csproj" />
+  </Folder>
+  <Project Path="LoadTest/LoadTest.csproj" />
+</Solution>
